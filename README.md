@@ -114,7 +114,7 @@ stylo/
 ## 🗺️ Roadmap
 
 - [x] Project setup
-- [ ] Express server with health check
+- [x] Express server with health check
 - [ ] PostgreSQL database + Prisma schema
 - [ ] Wardrobe API (add, view, edit, delete clothes)
 - [ ] Telegram bot integration
