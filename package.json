@@ -4,8 +4,8 @@
   "description": "AI stylist that sends you a daily outfit suggestion",
   "main": "src/index.js",
   "scripts": {
-    "dev": "node --watch src/index.js",
-    "start": "node src/index.js"
+    "dev": "tsx watch src/index.js",
+    "start": "tsx src/index.js"
   },
   "keywords": [],
   "author": "Kritika Khatri",
@@ -19,6 +19,12 @@
     "pg": "^8.23.1"
   },
   "devDependencies": {
-    "prisma": "^7.10.1"
+    "prisma": "^7.10.1",
+    "tsx": "^4.23.15"
+  },
+  "allowScripts": {
+    "prisma@7.10.1": true,
+    "@prisma/engines@7.10.1": true,
+    "esbuild@0.28.2": true
   }
 }
