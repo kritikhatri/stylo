@@ -18,6 +18,26 @@ app.get("/db-check", async (req, res) => {
   const items = await prisma.item.count();
   res.json({ database: "connected", users, items });
 });
+// Route: create a user
+app.post("/users", async (req, res) => {
+  const { name, city } = req.body;
+
+  if (!name || !city) {
+    return res.status(400).json({ error: "name and city are required" });
+  }
+
+  const user = await prisma.user.create({
+    data: { name, city },
+  });
+
+  res.status(201).json(user);
+});
+
+// Route: list all users
+app.get("/users", async (req, res) => {
+  const users = await prisma.user.findMany();
+  res.json(users);
+});
 
 // Start the server
 app.listen(PORT, () => {
