@@ -1,8 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client"
   output   = "../generated/prisma"
@@ -10,4 +5,41 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+}
+
+enum Category {
+  TOP
+  BOTTOM
+  DRESS
+  LAYER
+  SHOES
+  ACCESSORY
+}
+
+model User {
+  id             Int      @id @default(autoincrement())
+  name           String
+  city           String
+  timezone       String   @default("Asia/Kolkata")
+  sendTime       String   @default("07:30")
+  telegramChatId String?  @unique
+  createdAt      DateTime @default(now())
+  items          Item[]
+}
+
+model Item {
+  id        Int       @id @default(autoincrement())
+  name      String
+  category  Category
+  colours   String[]
+  fabric    String?
+  warmth    Int       // 1 = very light, 5 = very warm
+  formality Int       // 1 = loungewear, 5 = formal
+  imageUrl  String?
+  inLaundry Boolean   @default(false)
+  lastWorn  DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  userId    Int
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
