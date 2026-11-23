@@ -115,8 +115,8 @@ stylo/
 
 - [x] Project setup
 - [x] Express server with health check
-- [ ] PostgreSQL database + Prisma schema
-- [ ] Wardrobe API (add, view, edit, delete clothes)
+- [x] PostgreSQL database + Prisma schema
+- [x] Wardrobe API (add, view, edit, delete clothes)
 - [ ] Telegram bot integration
 - [ ] AI clothing tagging from photos
 - [ ] Weather-based outfit filtering
